@@ -100,10 +100,16 @@ class Game{
         // update the scores to the database
 
 
-        
+        // Add code for game end condition
+
+
     }
 
     end(){
-       console.log("Game Ended");
+
+       // Add code to update game state and display Game Over
+
+
+       
     }
 }

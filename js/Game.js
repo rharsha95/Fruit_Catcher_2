@@ -16,24 +16,23 @@ class Game{
         });
     }
     async start() {
-            if (gameState === 0) {
-                player = new Player();
-                var playerCountRef = await database.ref('playerCount').once("value");
-                if (playerCountRef.exists()) {
-                    playerCount = playerCountRef.val();
-                    player.getCount();
-                }
-                form = new Form()
-                form.display();
+        if (gameState === 0) {
+            player = new Player();
+            var playerCountRef = await database.ref('playerCount').once("value");
+            if (playerCountRef.exists()) {
+                playerCount = playerCountRef.val();
+                player.getCount();
             }
-    player1 = createSprite(200,500);
-    player1.addImage("player1",player_img);
-    
-    player2 = createSprite(800,500);
-    player2.addImage("player2", player_img);
-    players=[player1,player2];
-
+            form = new Form()
+            form.display();
         }
+        player1 = createSprite(200,500);
+        player1.addImage("player1",player_img);
+        
+        player2 = createSprite(800,500);
+        player2.addImage("player2", player_img);
+        players=[player1,player2];
+    }
     
     play(){
         
@@ -61,6 +60,11 @@ class Game{
                 text(allPlayers[plr].name ,x-25,y+25); 
             }
            
+            // Add code to diplay the scores of both 
+            // the players on the screen
+
+
+
         }
 
         if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
@@ -91,6 +95,12 @@ class Game{
             fruitGroup.add(fruits);
             
         }
+
+        // Add code to destroy fruits, calculate scores and
+        // update the scores to the database
+
+
+        
     }
 
     end(){
